@@ -2,7 +2,7 @@ from Robot import Robot
 from robot_assets import colors
 
 def build_robot():
-    robot_name = input("Robot name: ")
+    robot_name = input("Robot name: ").capitalize()
     color_code = choose_color()
     robot = Robot(robot_name, color_code)
     robot.print_status()
@@ -58,7 +58,11 @@ def play():
         rount += 1
         if not enemy_robot.is_on() or enemy_robot.is_there_available_part() == False:
             playing = False
-            print("Congratulations, you won")
+
+        if enemy_robot.is_on():
+            print("Parabéns, {} venceu!".format(enemy_robot.name))
+        else:
+            print("Parabéns, {} venceu!".format(current_robot.name))
 play()
 
 
